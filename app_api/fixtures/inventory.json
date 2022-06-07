@@ -1,0 +1,82 @@
+[
+    {
+        "model": "app_api.inventory",
+        "pk": 1,
+        "fields": {
+            "book_id": 1,
+            "quantity": 50
+        }
+    },
+    {
+        "model": "app_api.inventory",
+        "pk": 2,
+        "fields": {
+            "book_id": 2,
+            "quantity": 50
+        }
+    },
+    {
+        "model": "app_api.inventory",
+        "pk": 3,
+        "fields": {
+            "book_id": 3,
+            "quantity": 50
+        }
+    },
+    {
+        "model": "app_api.inventory",
+        "pk": 4,
+        "fields": {
+            "book_id": 4,
+            "quantity": 50
+        }
+    },
+    {
+        "model": "app_api.inventory",
+        "pk": 5,
+        "fields": {
+            "book_id": 5,
+            "quantity": 50
+        }
+    },
+    {
+        "model": "app_api.inventory",
+        "pk": 6,
+        "fields": {
+            "book_id": 6,
+            "quantity": 50
+        }
+    },
+    {
+        "model": "app_api.inventory",
+        "pk": 7,
+        "fields": {
+            "book_id": 7,
+            "quantity": 50
+        }
+    },
+    {
+        "model": "app_api.inventory",
+        "pk": 8,
+        "fields": {
+            "book_id": 8,
+            "quantity": 50
+        }
+    },
+    {
+        "model": "app_api.inventory",
+        "pk": 9,
+        "fields": {
+            "book_id": 9,
+            "quantity": 50
+        }
+    },
+    {
+        "model": "app_api.inventory",
+        "pk": 10,
+        "fields": {
+            "book_id": 10,
+            "quantity": 50
+        }
+    }
+]

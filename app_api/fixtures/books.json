@@ -1,0 +1,145 @@
+[
+    {
+        "model": "app_api.book",
+        "pk": 1,
+        "fields": {
+            "title":"Horror Business",
+            "introduction":"Horror Business introduction",
+            "cover_image_url":"",
+            "publication_date":"2021-12-05",
+            "author_id":1,
+            "price":24.9
+        }
+    },
+    {
+        "model": "app_api.book",
+        "pk": 2,
+        "fields": {
+            "title":"Carnal Knowledge",
+            "introduction":"Carnal Knowledge 's introduction",
+            "cover_image_url":"",
+            "publication_date":"2020-12-06",
+            "author_id":2,
+            "price":25.9
+        }
+    },
+    {
+        "model": "app_api.book",
+        "pk": 3,
+        "fields": {
+            "title":"Bread and Tulips",
+            "introduction":"Bread and Tulips introduction",
+            "cover_image_url":"",
+            "publication_date":"2021-1-15",
+            "author_id":3,
+            "price":43.9
+        }
+    }, {
+        "model": "app_api.book",
+        "pk": 4,
+        "fields": {
+            "title":"Tomb of Ligeia",
+            "introduction":"Tomb of Ligeia's introduction",
+            "cover_image_url":"",
+            "publication_date":"2021-2-25",
+            "author_id":4,
+            "price":83.8
+        }
+    },
+    {
+        "model": "app_api.book",
+        "pk": 5,
+        "fields": {
+            "title":"Victory",
+            "introduction":"Victory's introduction",
+            "cover_image_url":"",
+            "publication_date":"2022-12-12",
+            "author_id":1,
+            "price":77.9
+        }
+    },
+    {
+        "model": "app_api.book",
+        "pk": 6,
+        "fields": {
+            "title":"Stakeout on Dope Street",
+            "introduction":"Stakeout on Dope Street's introduction",
+            "cover_image_url":"",
+            "publication_date":"2020-5-20",
+            "author_id":2,
+            "price":66.9
+        }
+    },
+    {
+        "model": "app_api.book",
+        "pk": 7,
+        "fields": {
+            "title":"Scream of Fear",
+            "introduction":"Scream of Fear introduction",
+            "cover_image_url":"",
+            "publication_date":"2020-4-21",
+            "author_id":4,
+            "price":52.9
+        }
+    },
+    {
+        "model": "app_api.book",
+        "pk": 8,
+        "fields": {
+            "title":"She's So Lovely",
+            "introduction":"She's So Lovely introduction",
+            "cover_image_url":"",
+            "publication_date":"2021-8-14",
+            "author_id":1,
+            "price":22.9
+        }
+    },
+    {
+        "model": "app_api.book",
+        "pk": 9,
+        "fields": {
+            "title":"Beethoven's 3rd",
+            "introduction":"Beethoven's 3rd introduction",
+            "cover_image_url":"",
+            "publication_date":"2020-2-3",
+            "author_id":2,
+            "price":19.9
+        }
+    },
+    {
+        "model": "app_api.book",
+        "pk": 10,
+        "fields": {
+            "title":"Planet 51",
+            "introduction":"Planet 51 introduction",
+            "cover_image_url":"",
+            "publication_date":"2021-6-7",
+            "author_id":1,
+            "price":33.9
+        }
+    },
+    {
+        "model": "app_api.book",
+        "pk": 11,
+        "fields": {
+            "title":"Earth",
+            "introduction":"Earth introduction",
+            "cover_image_url":"",
+            "publication_date":"2020-12-11",
+            "author_id":2,
+            "price":23.9
+        }
+    },
+    {
+        "model": "app_api.book",
+        "pk": 12,
+        "fields": {
+            "title":"Harry Potter",
+            "introduction":"Harry Potter introduction",
+            "cover_image_url":"",
+            "publication_date":"2020-1-12",
+            "author_id":2,
+            "price":69.9
+        }
+    }
+]

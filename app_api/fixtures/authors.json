@@ -1,0 +1,30 @@
+[
+    {
+        "model": "app_api.author",
+        "pk": 1,
+        "fields": {
+            "name": "Ingram Iorio"
+        }
+    },
+    {
+        "model": "app_api.author",
+        "pk": 2,
+        "fields": {
+            "name": "Silvie Mattingson"
+        }
+    },
+    {
+        "model": "app_api.author",
+        "pk": 3,
+        "fields": {
+            "name": "Sharyl Craghead"
+        }
+    },
+    {
+        "model": "app_api.author",
+        "pk": 4,
+        "fields": {
+            "name": "Antoni Dodson"
+        }
+    }
+]
