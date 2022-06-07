@@ -29,7 +29,9 @@ def login_user(request):
         }
     else:
         data = { 'valid': False }
+        
     return Response(data)
+
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -40,17 +42,20 @@ def register_user(request):
       request -- The full HTTP request object
     '''
 
-    # TODO: this is only adding the username and password, if you want to add in more user fields like first and last name update this code
+    # Create a new user by invoking the `create_user` helper method
+    # on Django's built-in User model
     new_user = User.objects.create_user(
         username=request.data['username'],
         password=request.data['password'],
+        first_name=request.data['first_name'],
+        last_name=request.data['last_name']
     )
 
-    # TODO: If you're using a model with a 1 to 1 relationship to the django user, create that object here
-
-    
+    # Use the REST Framework's token generator on the new user account
     token = Token.objects.create(user=new_user)
-    # TODO: If you need to send the client more information update the data dict
     
+    # Return the token to the client
     data = { 'token': token.key }
+    
     return Response(data, status=status.HTTP_201_CREATED)
+
