@@ -1,6 +1,7 @@
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
+from django.db.models import Q
 
 from app_api.models import Book
 
@@ -30,6 +31,12 @@ class BookView(ViewSet):
         pub_date = request.query_params.get('published_date', None)
         is_before = request.query_params.get('before', None)
         
+        # search books by title
+        search_title = request.query_params.get('title', None)
+        
+        # search books by author name
+        search_author_name = request.query_params.get('author_name', None)
+        
         if category is not None:
             books = books.filter(categories__id = int(category))
 
@@ -38,6 +45,16 @@ class BookView(ViewSet):
                 books = books.filter(publication_date__lte = pub_date)
             else:
                 books = books.filter(publication_date__gt = pub_date)
+
+        if search_title is not None:
+            books = books.filter(
+                Q(title__contains=search_title)
+            )
+
+        if search_author_name is not None:
+            books = books.filter(
+                Q(author__name__contains=search_author_name)
+            )
 
         serializer = BookSerializer(books, many=True)
         return Response(serializer.data)
@@ -108,7 +125,8 @@ class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
         # Using depth to embed tables: fields need to revise to
-        fields = ('id', 'title', 'cover_image_url', 'introduction', 'price', 'publication_date')
+        fields = ('id', 'title', 'cover_image_url', 'introduction', 'price', 'publication_date', 'author')
+        depth = 1
 
 # class CreateGameSerializer(serializers.ModelSerializer):
 #     """use for create (validation received data from client)"""
