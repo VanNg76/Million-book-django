@@ -20,11 +20,23 @@ class BookView(ViewSet):
 
     def list(self, request):
         """Handle GET requests to get all books """
-        books = Book.objects.all()
-
-        # game_type = request.query_params.get('type', None)
-        # if game_type is not None:
-        #     games = games.filter(game_type_id=game_type)
+      
+        # filter books by category
+        category = request.query_params.get('category', None)
+        
+        # filter books before or after publication date
+        publication_date = request.query_params.get('publication_date', None)
+        is_before = request.query_params.get('before', None)
+        
+        if category is not None:
+            books = Book.objects.filter(categories__id = int(category))
+            # bookcategories = BookCategory.objects.filter(category_id=int(category))
+            # books = []
+            # for bc in bookcategories:
+            #     book = Book.objects.get(pk=bc.book_id)
+            #     books.append(book)
+        else:
+            books = Book.objects.all()
 
         serializer = BookSerializer(books, many=True)
         return Response(serializer.data)
