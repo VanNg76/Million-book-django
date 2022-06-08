@@ -20,23 +20,24 @@ class BookView(ViewSet):
 
     def list(self, request):
         """Handle GET requests to get all books """
-      
+
+        books = Book.objects.all()
+        
         # filter books by category
         category = request.query_params.get('category', None)
         
         # filter books before or after publication date
-        publication_date = request.query_params.get('publication_date', None)
+        pub_date = request.query_params.get('published_date', None)
         is_before = request.query_params.get('before', None)
         
         if category is not None:
-            books = Book.objects.filter(categories__id = int(category))
-            # bookcategories = BookCategory.objects.filter(category_id=int(category))
-            # books = []
-            # for bc in bookcategories:
-            #     book = Book.objects.get(pk=bc.book_id)
-            #     books.append(book)
-        else:
-            books = Book.objects.all()
+            books = books.filter(categories__id = int(category))
+
+        if pub_date is not None:
+            if is_before == 'true':
+                books = books.filter(publication_date__lte = pub_date)
+            else:
+                books = books.filter(publication_date__gt = pub_date)
 
         serializer = BookSerializer(books, many=True)
         return Response(serializer.data)
@@ -107,7 +108,7 @@ class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
         # Using depth to embed tables: fields need to revise to
-        fields = ('id', 'title', 'cover_image_url', 'introduction', 'price')
+        fields = ('id', 'title', 'cover_image_url', 'introduction', 'price', 'publication_date')
 
 # class CreateGameSerializer(serializers.ModelSerializer):
 #     """use for create (validation received data from client)"""
