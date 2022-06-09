@@ -26,48 +26,19 @@ class CategoryView(ViewSet):
         
         return Response(serializer.data)
 
-    # def create(self, request):
-    #     """Handle POST operations
-    #     Returns
-    #         Response -- JSON serialized game instance
-    #     """
+    def create(self, request):
+        """Handle POST """
 
-    #     gamer = Gamer.objects.get(user=request.auth.user)
-    #     game_type = GameType.objects.get(pk=request.data['game_type'])
-    #     game = Game.objects.create(
-    #         title = request.data['title'],
-    #         maker = request.data['maker'],
-    #         number_of_player = request.data['number_of_player'],
-    #         skill_level = request.data['skill_level'],
-    #         gamer=gamer,
-    #         game_type=game_type
-    #     )
-    #     serializer = GameSerializer(game)
-    #     return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-        # works to create a game, but does not pass test
-        # serializer = CreateGameSerializer(data=request.data)
-        # serializer.is_valid(raise_exception=True)
-        # serializer.save(gamer=gamer, game_type=game_type)
-        # return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-
-    # def destroy(self, request, pk):
-    #     game = Game.objects.get(pk=pk)
-    #     game.delete()
-    #     return Response(None, status=status.HTTP_204_NO_CONTENT)
+        category = Category.objects.create(
+            name = request.data['name']
+        )
+        serializer = CategorySerializer(category)
+        
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class CategorySerializer(serializers.ModelSerializer):
     """JSON serializer for categories """
     class Meta:
         model = Category
-        # Using depth to embed tables: fields need to revise to
         fields = ('id', 'name')
-
-# class CreateGameSerializer(serializers.ModelSerializer):
-#     """use for create (validation received data from client)"""
-#     class Meta:
-#         model = Game
-#         fields = ['id', 'title', 'maker', 'number_of_player', 'skill_level', 'game_type']
-#         depth = 1

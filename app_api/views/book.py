@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import serializers, status
 from django.db.models import Q
 
-from app_api.models import Book
+from app_api.models import Book, Inventory, Category
 
 
 class BookView(ViewSet):
@@ -13,8 +13,15 @@ class BookView(ViewSet):
         """Handle GET requests for single book """
         try:
             book = Book.objects.get(pk=pk)
+            
+            # filter by ManyToMany relationship
+            categoryArray = Category.objects.filter(books__id=pk)
+            # then use set() to set the result to property 'categories'
+            book.categories.set(categoryArray)
+            
             serializer = BookSerializer(book)
             return Response(serializer.data)
+        
         except Book.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
@@ -59,65 +66,51 @@ class BookView(ViewSet):
         serializer = BookSerializer(books, many=True)
         return Response(serializer.data)
 
-    # def create(self, request):
-    #     """Handle POST operations
-    #     Returns
-    #         Response -- JSON serialized game instance
-    #     """
 
-    #     gamer = Gamer.objects.get(user=request.auth.user)
-    #     game_type = GameType.objects.get(pk=request.data['game_type'])
-    #     game = Game.objects.create(
-    #         title = request.data['title'],
-    #         maker = request.data['maker'],
-    #         number_of_player = request.data['number_of_player'],
-    #         skill_level = request.data['skill_level'],
-    #         gamer=gamer,
-    #         game_type=game_type
-    #     )
-    #     serializer = GameSerializer(game)
-    #     return Response(serializer.data, status=status.HTTP_201_CREATED)
+    def create(self, request):
+        """Handle POST operations: create new book,
+        add category, and add inventory for new book """
+        
+        book = Book.objects.create(
+            title = request.data['title'],
+            introduction = request.data['introduction'],
+            publication_date = request.data['publication_date'],
+            price = request.data['price'],
+            author_id = request.data['author_id'],
+            cover_image_url = request.data['cover_image_url']
+        )
+        
+        serializer = CreateBookSerializer(book)
+        
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-        # works to create a game, but does not pass test
-        # serializer = CreateGameSerializer(data=request.data)
-        # serializer.is_valid(raise_exception=True)
-        # serializer.save(gamer=gamer, game_type=game_type)
-        # return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    # def update(self, request, pk):
-    #     """(is working!! update function without validation)"""
-    #     # Handle PUT requests for a game
+    def update(self, request, pk):
+        """Handle PUT request for book"""
+        
+        book = Book.objects.get(pk=pk)
+        book.title = request.data["title"]
+        book.introduction = request.data["introduction"]
+        book.publication_date = request.data["publication_date"]
+        book.price = request.data["price"]
+        book.author_id = request.data["author_id"]
+        book.cover_image_url = request.data["cover_image_url"]
+        book.save()
+        
+        # if categories send back from client, below 3 line will
+        # remove all related records in joined table and add new records into joined table
+        # book.refresh_from_db()
+        # book.categories.remove(*book.categories.all())
+        # book.categories.add(*request.data['categories'])
+        
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
-    #     game = Game.objects.get(pk=pk)
-    #     game.title = request.data["title"]
-    #     game.maker = request.data["maker"]
-    #     game.number_of_player = request.data["number_of_player"]
-    #     game.skill_level = request.data["skill_level"]
 
-    #     game_type = GameType.objects.get(pk=request.data["game_type"])
-    #     game.game_type = game_type
-    #     game.save()
-
-    #     return Response(None, status=status.HTTP_204_NO_CONTENT)
-
-    # def update(self, request, pk):
-    #     """Handle PUT requests for a game
-    #     update function with validation
-    #     """
-    #     game = Game.objects.get(pk=pk)
-    #     game_type = GameType.objects.get(pk=request.data['game_type'])
-    #     gamer = Gamer.objects.get(user=request.auth.user)
-    #     # The original game object is passed to the serializer, along with the request.data
-    #     # This will make any updates on the game object
-    #     serializer = CreateGameSerializer(game, data=request.data)
-    #     serializer.is_valid(raise_exception=True)
-    #     serializer.save(game_type=game_type, gamer=gamer)
-    #     return Response(None, status=status.HTTP_204_NO_CONTENT)
-
-    # def destroy(self, request, pk):
-    #     game = Game.objects.get(pk=pk)
-    #     game.delete()
-    #     return Response(None, status=status.HTTP_204_NO_CONTENT)
+    def destroy(self, request, pk):
+        """DELETE request"""
+        book = Book.objects.get(pk=pk)
+        book.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 
 class BookSerializer(serializers.ModelSerializer):
@@ -125,12 +118,11 @@ class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
         # Using depth to embed tables: fields need to revise to
-        fields = ('id', 'title', 'cover_image_url', 'introduction', 'price', 'publication_date', 'author')
+        fields = ('id', 'title', 'introduction', 'price', 'publication_date', 'author', 'cover_image_url')
         depth = 1
 
-# class CreateGameSerializer(serializers.ModelSerializer):
-#     """use for create (validation received data from client)"""
-#     class Meta:
-#         model = Game
-#         fields = ['id', 'title', 'maker', 'number_of_player', 'skill_level', 'game_type']
-#         depth = 1
+class CreateBookSerializer(serializers.ModelSerializer):
+    """JSON serializer for new book """
+    class Meta:
+        model = Book
+        fields = ('id', 'title', 'introduction', 'price', 'publication_date', 'author_id', 'cover_image_url')
