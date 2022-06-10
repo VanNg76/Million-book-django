@@ -3,3 +3,4 @@ from .book import BookView
 from .category import CategoryView
 from .user import UserView
 from .author import AuthorView
+from .order import OrderView

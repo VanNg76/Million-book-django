@@ -2,6 +2,10 @@ update auth_user
 set is_staff = True
 where id = 1;
 
+update app_api_inventory
+set quantity = 50
+where id in (10,1)
+
 insert into app_api_book_categories (book_id, category_id)
 values (1,1);
 insert into app_api_book_categories (book_id, category_id)

@@ -8,16 +8,6 @@ from app_api.models import Category
 class CategoryView(ViewSet):
     """category view"""
 
-    # def retrieve(self, request, pk):
-    #     """Handle GET requests for single book """
-    #     try:
-    #         book = Book.objects.get(pk=pk)
-    #         serializer = BookSerializer(book)
-    #         return Response(serializer.data)
-    #     except Book.DoesNotExist as ex:
-    #         return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
-
-
     def list(self, request):
         """Handle GET requests to get all categories """
       

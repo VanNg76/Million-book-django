@@ -18,10 +18,10 @@ class BookView(ViewSet):
             categoryArray = Category.objects.filter(books__id=pk)
             # then use set() to set the result to property 'categories'
             book.categories.set(categoryArray)
-            
+
             serializer = BookSerializer(book)
             return Response(serializer.data)
-        
+
         except Book.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
@@ -29,8 +29,9 @@ class BookView(ViewSet):
     def list(self, request):
         """Handle GET requests to get all books """
 
-        books = Book.objects.all()
-        
+        # only get books that has inventory > 0 
+        books = Book.objects.filter(inventory__quantity__gt=0)
+
         # filter books by category
         category = request.query_params.get('category', None)
         
@@ -118,7 +119,7 @@ class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
         # Using depth to embed tables: fields need to revise to
-        fields = ('id', 'title', 'introduction', 'price', 'publication_date', 'author', 'cover_image_url')
+        fields = ('id', 'title', 'introduction', 'order_quantity', 'price', 'publication_date', 'author', 'cover_image_url')
         depth = 1
 
 class CreateBookSerializer(serializers.ModelSerializer):

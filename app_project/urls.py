@@ -20,6 +20,7 @@ from rest_framework import routers
 
 from app_api.views import register_user, login_user
 from app_api.views import BookView, CategoryView, UserView, AuthorView
+from app_api.views.order import OrderView
 
 
 router = routers.DefaultRouter(trailing_slash=False)
@@ -27,6 +28,7 @@ router.register(r'books', BookView, 'book')
 router.register(r'categories', CategoryView, 'category')
 router.register(r'users', UserView, 'user')
 router.register(r'authors', AuthorView, 'author')
+router.register(r'orders', OrderView, 'order')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
