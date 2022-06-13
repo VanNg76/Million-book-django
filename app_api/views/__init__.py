@@ -4,3 +4,5 @@ from .category import CategoryView
 from .user import UserView
 from .author import AuthorView
 from .order import OrderView
+from .orderbook import OrderBookView, OrderBookSerializer
+from .inventory import InventoryView

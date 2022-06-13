@@ -2,9 +2,61 @@ update auth_user
 set is_staff = True
 where id = 1;
 
-update app_api_inventory
-set quantity = 50
-where id in (10,1)
+update app_api_book
+set introduction = "A comic book genre that flourished briefly in America during the middle 1940s and early 1950s. The genre was infamous for its gruesomely illustrated tales of ghosts and ghouls, zombies and vampires, haunted houses and graveyards."
+where id = 1;
+
+update app_api_book
+set introduction = "Nice guy Sandy and charming schemer Jonathan meet as college roommates in the late 1940s. Sandy woos and eventually marries the sweetly virginal Susan without knowing that she had cheated on him with Jonathan. Years later, his marriage faltering, Sandy attempts to mimic Jonathan's promiscuous womanizing, while the misogynistic Jonathan finally tries his hand at monogamy with the gorgeous but emotionally needy Bobbie."
+where id = 2;
+
+update app_api_book
+set introduction = "During a family vacation on a bus tour, a woman is accidentally left behind at a rest stop. She quickly gets tired of waiting for her family to pick her up, so she continues her vacation on her own, in an unplanned quirky journey, where ever it may lead. Random circumstances and chance meetings make for a story of independence, destiny and love."
+where id = 3;
+
+update app_api_book
+set introduction = "Some years after having buried his beloved wife Ligea, Verden Fell meets and eventually marries the lovely Lady Rowena. Fell is something of a recluse, living in a small part of a now ruined Abbey with his manservant Kenrick as the only other occupant. He remains infatuated with his late wife and is convinced that she will return to him. While all goes well when first married, he returns to his odd behavior when they return to the Abbey from their honeymoon. The memories of Ligea continue to haunt him as well as her promise that she would never die."
+where id = 4;
+
+update app_api_book
+set introduction = "Victory (also published as Victory: An Island Tale) is a psychological novel by Joseph Conrad first published in 1915, through which Conrad achieved 'popular success.' The New York Times, however, called it 'an uneven book' and 'more open to criticism than most of Mr. Conrad's best work'."
+where id = 5;
+
+update app_api_book
+set introduction = "When a pusher is killed so he can't rat out the mob, his briefcase winds up in the hands of 18-year-old Ves, who finds it in the bushes. Discovering that the bag contains two pounds of smack, Ves and his pals take the dope to a neighborhood junkie who agrees to help them sell it. Unaware that the police are hot on their trail, the boys dream of what money can buy, while the syndicate wants its heroin back and is closing in for the kill."
+where id = 6;
+
+update app_api_book
+set introduction = "No one studies fear quite like Margee Kerr. A sociologist who moonlights at one of America's scariest and most popular haunted houses, she has seen grown men laugh, cry, and push their loved ones aside as they run away in terror. And she's kept careful notes on what triggers these responses and why."
+where id = 7;
+
+update app_api_book
+set introduction = "A woman whose passion for two totally opposite men sets up an outrageously explosive love triangle! Maureen and first husband Eddie lived through some very wild times ... until an unforeseen crisis finally drove them apart. So when he walks back into her life after 10 years ... Maureen must choose between her love for husband number two ... and the electricity she shares with Eddie!"
+where id = 8;
+
+update app_api_book
+set introduction = "On an ordinary Friday, in an ordinary street, the mother of two children hears two chords played on a piano and things begin to change......"
+where id = 9;
+
+update app_api_book
+set introduction = "Everything seemed to be going just right for Lem, until the day an astronaut dropped out of the sky and landed in his back yard. Soon, Lem's world is turned upside-down. With his entire planet in a tizzy over the 'alien invasion', Lem knows that it's up to him to help Chuck back to his ship. Along the way, the two discover that they have more in common than meets the eye. Can Lem convince his friends that Chuck isn't the threat they assume him to be?"
+where id = 10;
+
+update app_api_book
+set introduction = "An exhilarating, time-traveling journey to the solar system's strangest and most awe-inspiring volcanoes.Volcanoes are capable of acts of pyrotechnical prowess verging on magic: they spout black magma more fluid than water, create shimmering cities of glass at the bottom of the ocean and frozen lakes of lava on the moon, and can even tip entire planets over."
+where id = 11;
+
+update app_api_book
+set introduction = "In 1990, Rowling was on a crowded train from Manchester to London when the idea for Harry suddenly 'fell into her head'.
+'I had been writing almost continuously since the age of six but I had never been so excited about an idea before. I simply sat and thought, for four (delayed train) hours, and all the details bubbled up in my brain, and this scrawny, black-haired, bespectacled boy who did not know he was a wizard became more and more real to me.'"
+where id = 12;
+
+update app_api_book
+set cover_image_url = "https://play-lh.googleusercontent.com/7nDFP6L5cpQvZVPhLO7O5xf-sTg_yqnSfLBpeMhA0d2zc8JeuycoAk7i9ofoHwKalj-iDu-D1954qFc=w240-h480-rw"
+where id =16;
+
+delete from app_api_order
+where id =5
 
 insert into app_api_book_categories (book_id, category_id)
 values (1,1);
