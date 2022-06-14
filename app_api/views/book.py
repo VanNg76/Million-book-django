@@ -30,44 +30,44 @@ class BookView(ViewSet):
     def list(self, request):
         """Handle GET requests to get all books """
 
+        # filter books by category
+        category = request.query_params.get('category', None)
+        
+        # filter books before or after publication date
+        pub_date = request.query_params.get('published_date', None)
+        is_before = request.query_params.get('before', None)
+        
+        # search books by title
+        search_title = request.query_params.get('title', None)
+        
+        # search books by author name
+        search_author_name = request.query_params.get('author_name', None)
+
         user = request.auth.user
         if user.is_staff == 1:
             books = Book.objects.all()
         else:
             # only get books that has inventory > 0 
             books = Book.objects.filter(inventory__quantity__gt=0)
-
-            # filter books by category
-            category = request.query_params.get('category', None)
             
-            # filter books before or after publication date
-            pub_date = request.query_params.get('published_date', None)
-            is_before = request.query_params.get('before', None)
-            
-            # search books by title
-            search_title = request.query_params.get('title', None)
-            
-            # search books by author name
-            search_author_name = request.query_params.get('author_name', None)
-            
-            if category is not None:
-                books = books.filter(categories__id = int(category))
+        if category is not None:
+            books = books.filter(categories__id = int(category))
 
-            if pub_date is not None:
-                if is_before == 'true':
-                    books = books.filter(publication_date__lte = pub_date)
-                else:
-                    books = books.filter(publication_date__gt = pub_date)
+        if pub_date is not None:
+            if is_before == 'true':
+                books = books.filter(publication_date__lte = pub_date)
+            else:
+                books = books.filter(publication_date__gt = pub_date)
 
-            if search_title is not None:
-                books = books.filter(
-                    Q(title__contains=search_title)
-                )
+        if search_title is not None:
+            books = books.filter(
+                Q(title__contains=search_title)
+            )
 
-            if search_author_name is not None:
-                books = books.filter(
-                    Q(author__name__contains=search_author_name)
-                )
+        if search_author_name is not None:
+            books = books.filter(
+                Q(author__name__contains=search_author_name)
+            )
 
         serializer = BookSerializer(books, many=True)
         
