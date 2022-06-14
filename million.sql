@@ -2,6 +2,9 @@ update auth_user
 set is_staff = True
 where id = 1;
 
+delete from app_api_inventory
+where id=13;
+
 update app_api_book
 set introduction = "A comic book genre that flourished briefly in America during the middle 1940s and early 1950s. The genre was infamous for its gruesomely illustrated tales of ghosts and ghouls, zombies and vampires, haunted houses and graveyards."
 where id = 1;

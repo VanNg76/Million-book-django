@@ -9,6 +9,14 @@ from app_api.views.book import BookSerializer
 
 class OrderBookView(ViewSet):
     """orderbook view"""
+    
+    def list(self, request):
+        """GET"""
+
+        orderbooks = OrderBook.objects.all()
+        serializer = CreateOrderBookSerializer(orderbooks, many=True)
+        
+        return Response(serializer.data)
 
     def create(self, request):
         """add a book to current user order """
@@ -31,7 +39,7 @@ class OrderBookView(ViewSet):
                 orderbook.save()
                 inventory.quantity -= quantity  # deduct inventory by new request quantity
                 inventory.save()
-            else:
+            else:                   # never happend because front-end has prevent it to happend
                 orderbook.quantity=-1
                 orderbook.save()
 
@@ -57,8 +65,8 @@ class OrderBookView(ViewSet):
 
     def destroy(self, request, pk):
         """DELETE request"""
-        inventory = Inventory.objects.get(book_id=request.data['book_id'])
         orderbook = OrderBook.objects.get(pk=pk)
+        inventory = Inventory.objects.get(book_id=orderbook.book_id)
 
         # return quantity to inventory
         inventory.quantity += orderbook.quantity

@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import serializers, status
 import datetime
 
-from app_api.models import Order, OrderBook
+from app_api.models import Order, OrderBook, Inventory
 from app_api.views.orderbook import OrderBookSerializer
 
 
@@ -61,6 +61,10 @@ class OrderView(ViewSet):
         """DELETE request"""
         order = Order.objects.get(pk=pk)
         orderbooks = OrderBook.objects.filter(order=order)
+        for ob in orderbooks:
+            inventory = Inventory.objects.get(book_id=ob.book_id)
+            inventory.quantity += ob.quantity
+            inventory.save()
         orderbooks.delete()
         order.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)

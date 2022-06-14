@@ -22,9 +22,36 @@ class InventoryView(ViewSet):
         serializer = InventorySerializer(inventories, many=True)
         return Response(serializer.data)
 
+
+    def create(self, request):
+        """Handle POST """
+        book_id = request.data['book_id']
+        quantity = request.data['quantity']
+        try:
+            inventory = Inventory.objects.get(book_id=book_id)
+            inventory.quantity = quantity
+            inventory.save()
+            serializer = InventorySerializer(inventory)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+            
+        except Inventory.DoesNotExist:
+            inventory = Inventory.objects.create(
+                book_id = book_id,
+                quantity = quantity
+            )
+            serializer = CreateInventorySerializer(inventory)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
 class InventorySerializer(serializers.ModelSerializer):
     """JSON serializer for inventories """
     class Meta:
         model = Inventory
         fields = ('id', 'quantity', 'book')
         depth = 1
+
+class CreateInventorySerializer(serializers.ModelSerializer):
+    """JSON serializer for inventories """
+    class Meta:
+        model = Inventory
+        fields = ('id', 'quantity', 'book_id')

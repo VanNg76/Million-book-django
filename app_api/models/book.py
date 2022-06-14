@@ -13,9 +13,9 @@ class Book(models.Model):
     price = models.FloatField()
     categories = models.ManyToManyField(Category, related_name="books")
 
-    @property
-    def order_quantity(self):
-        return self.__order_quantity
-    @order_quantity.setter
-    def order_quantity(self, value):
-        self.__order_quantity = value
+    # @property
+    # def order_quantity(self):
+    #     return self.__order_quantity
+    # @order_quantity.setter
+    # def order_quantity(self, value):
+    #     self.__order_quantity = value
