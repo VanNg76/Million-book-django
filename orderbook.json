@@ -1,0 +1,38 @@
+[
+    {
+        "model": "app_api.orderbook",
+        "pk": 1,
+        "fields": {
+            "book_id": 1,
+            "order_id": 1,
+            "quantity": 2
+        }
+    },
+    {
+        "model": "app_api.orderbook",
+        "pk": 2,
+        "fields": {
+            "book_id": 2,
+            "order_id": 1,
+            "quantity": 1
+        }
+    },
+    {
+        "model": "app_api.orderbook",
+        "pk": 3,
+        "fields": {
+            "book_id": 3,
+            "order_id": 2,
+            "quantity": 2
+        }
+    },
+    {
+        "model": "app_api.orderbook",
+        "pk": 4,
+        "fields": {
+            "book_id": 4,
+            "order_id": 2,
+            "quantity": 3
+        }
+    }
+]

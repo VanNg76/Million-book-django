@@ -1,0 +1,18 @@
+[
+    {
+        "model": "app_api.order",
+        "pk": 1,
+        "fields": {
+            "user_id": 1,
+            "date": "2022-2-2"
+        }
+    },
+    {
+        "model": "app_api.order",
+        "pk": 2,
+        "fields": {
+            "user_id": 2,
+            "date": "2022-6-6"
+        }
+    }
+]

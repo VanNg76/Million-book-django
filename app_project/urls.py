@@ -15,10 +15,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import include
+from rest_framework import routers
+
 from app_api.views import register_user, login_user
+from app_api.views import BookView, CategoryView, UserView, AuthorView
+from app_api.views import OrderView, OrderBookView
+from app_api.views.inventory import InventoryView
+
+
+router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'books', BookView, 'book')
+router.register(r'categories', CategoryView, 'category')
+router.register(r'users', UserView, 'user')
+router.register(r'authors', AuthorView, 'author')
+router.register(r'orders', OrderView, 'order')
+router.register(r'orderbooks', OrderBookView, 'orderbook')
+router.register(r'inventories', InventoryView, 'inventory')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register', register_user),
     path('login', login_user),
+    path('', include(router.urls)),
 ]
