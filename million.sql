@@ -2,8 +2,15 @@ update auth_user
 set is_staff = True
 where id = 1;
 
-delete from app_api_inventory
-where id=13;
+update app_api_book
+set cover_image_url="https://image-cdn.neatoshop.com/styleimg/109384/none/black/default/468745-20;1598458611y.jpg"
+where id=1
+
+delete from app_api_category
+where id>10
+
+update app_api_inventory
+set quantity=50
 
 update app_api_book
 set introduction = "A comic book genre that flourished briefly in America during the middle 1940s and early 1950s. The genre was infamous for its gruesomely illustrated tales of ghosts and ghouls, zombies and vampires, haunted houses and graveyards."
@@ -55,11 +62,13 @@ set introduction = "In 1990, Rowling was on a crowded train from Manchester to L
 where id = 12;
 
 update app_api_book
-set cover_image_url = "https://play-lh.googleusercontent.com/7nDFP6L5cpQvZVPhLO7O5xf-sTg_yqnSfLBpeMhA0d2zc8JeuycoAk7i9ofoHwKalj-iDu-D1954qFc=w240-h480-rw"
-where id =16;
+set cover_image_url = "https://images-na.ssl-images-amazon.com/images/I/51G5M6dJOOL._SX331_BO1,204,203,200_.jpg"
+where id =1;
 
-delete from app_api_order
-where id =5
+
+
+delete from app_api_orderbook
+where id =56
 
 insert into app_api_book_categories (book_id, category_id)
 values (1,1);
