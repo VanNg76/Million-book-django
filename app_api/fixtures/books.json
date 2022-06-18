@@ -4,7 +4,7 @@
         "pk": 1,
         "fields": {
             "title":"Horror Business",
-            "introduction":"A comic book genre that flourished briefly in America during the middle 1940s and early 1950s. The genre was infamous for its gruesomely illustrated tales of ghosts and ghouls, zombies and vampires, haunted houses and graveyards.",
+            "introduction":"A comic book genre that flourished briefly in America during the middle 1940s and early 1950s. The genre was infamous for its gruesomely illustrated tales of ghosts and ghouls.",
             "cover_image_url": "https://image-cdn.neatoshop.com/styleimg/109384/none/black/default/468745-20;1598458611y.jpg",
             "publication_date":"2021-12-05",
             "author_id":1,
@@ -17,7 +17,7 @@
         "fields": {
             "title":"Carnal Knowledge",
             "cover_image_url": "https://m.media-amazon.com/images/I/51kF1NzjuML._SY445_.jpg",
-            "introduction":"Nice guy Sandy and charming schemer Jonathan meet as college roommates in the late 1940s. Sandy woos and eventually marries the sweetly virginal Susan without knowing that she had cheated on him with Jonathan. Years later, his marriage faltering, Sandy attempts to mimic Jonathan's promiscuous womanizing, while the misogynistic Jonathan finally tries his hand at monogamy with the gorgeous but emotionally needy Bobbie.",
+            "introduction":"Nice guy Sandy and charming schemer Jonathan meet as college roommates in the late 1940s. Sandy eventually marries the sweetly virginal Susan without knowing.",
             "publication_date":"2020-12-06",
             "author_id":2,
             "price":25.9
@@ -29,7 +29,7 @@
         "fields": {
             "title":"Bread and Tulips",
             "cover_image_url": "https://m.media-amazon.com/images/I/51sgiroq4sL._SY445_.jpg",
-            "introduction":"During a family vacation on a bus tour, a woman is accidentally left behind at a rest stop. She quickly gets tired of waiting for her family to pick her up, so she continues her vacation on her own, in an unplanned quirky journey, where ever it may lead. Random circumstances and chance meetings make for a story of independence, destiny and love.",
+            "introduction":"During a family vacation on a bus tour, a woman is accidentally left behind at a rest stop. She quickly gets tired of waiting for her family to pick her up.",
             "publication_date":"2021-1-15",
             "author_id":3,
             "price":43.9
@@ -40,7 +40,7 @@
         "fields": {
             "title":"Tomb of Ligeia",
             "cover_image_url": "https://m.media-amazon.com/images/I/41PglrDopBL.jpg",
-            "introduction":"Some years after having buried his beloved wife Ligea, Verden Fell meets and eventually marries the lovely Lady Rowena. Fell is something of a recluse, living in a small part of a now ruined Abbey with his manservant Kenrick as the only other occupant. He remains infatuated with his late wife and is convinced that she will return to him. While all goes well when first married, he returns to his odd behavior when they return to the Abbey from their honeymoon. The memories of Ligea continue to haunt him as well as her promise that she would never die.",
+            "introduction":"Some years after having buried his beloved wife Ligea, Verden Fell meets and eventually marries the lovely Lady Rowena.",
             "publication_date":"2021-2-25",
             "author_id":4,
             "price":83.8
@@ -52,7 +52,7 @@
         "fields": {
             "title":"Victory",
             "cover_image_url": "https://m.media-amazon.com/images/M/MV5BMDVhZjBiNDgtZTY1YS00Y2I3LTgwYTUtMDExYzNjMDNkMDQ3XkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_.jpg",
-            "introduction":"Victory (also published as Victory: An Island Tale) is a psychological novel by Joseph Conrad first published in 1915, through which Conrad achieved 'popular success.' The New York Times, however, called it 'an uneven book' and 'more open to criticism than most of Mr. Conrad's best work'.",
+            "introduction":"Victory (also published as Victory: An Island Tale) is a psychological novel by Joseph Conrad first published in 1915, through which Conrad achieved 'popular success.'",
             "publication_date":"2022-12-12",
             "author_id":1,
             "price":77.9
@@ -64,7 +64,7 @@
         "fields": {
             "title":"Stakeout on Dope Street",
             "cover_image_url": "https://m.media-amazon.com/images/I/61lNqomyEsL._SY445_.jpg",
-            "introduction":"When a pusher is killed so he can't rat out the mob, his briefcase winds up in the hands of 18-year-old Ves, who finds it in the bushes. Discovering that the bag contains two pounds of smack, Ves and his pals take the dope to a neighborhood junkie who agrees to help them sell it. Unaware that the police are hot on their trail, the boys dream of what money can buy, while the syndicate wants its heroin back and is closing in for the kill.",
+            "introduction":"When a pusher is killed so he can't rat out the mob, his briefcase winds up in the hands of 18-year-old Ves, who finds it in the bushes.",
             "publication_date":"2020-5-20",
             "author_id":2,
             "price":66.9
@@ -76,7 +76,7 @@
         "fields": {
             "title":"Scream of Fear",
             "cover_image_url": "https://m.media-amazon.com/images/I/71sylocwstL._SY445_.jpg",
-            "introduction":"No one studies fear quite like Margee Kerr. A sociologist who moonlights at one of America's scariest and most popular haunted houses, she has seen grown men laugh, cry, and push their loved ones aside as they run away in terror. And she's kept careful notes on what triggers these responses and why.",
+            "introduction":"A sociologist who moonlights at one of America's scariest and most popular haunted houses, she has seen grown men laugh, cry",
             "publication_date":"2020-4-21",
             "author_id":4,
             "price":52.9
@@ -88,7 +88,7 @@
         "fields": {
             "title":"She's So Lovely",
             "cover_image_url": "https://images.squarespace-cdn.com/content/v1/583c906ebe659429d1106265/1608586622385-YOICYIHVB61Z94582687/unnamed.jpg",
-            "introduction":"A woman whose passion for two totally opposite men sets up an outrageously explosive love triangle! Maureen and first husband Eddie lived through some very wild times ... until an unforeseen crisis finally drove them apart. So when he walks back into her life after 10 years ... Maureen must choose between her love for husband number two ... and the electricity she shares with Eddie!",
+            "introduction":"A woman whose passion for two totally opposite men sets up an outrageously explosive love triangle! Maureen and first husband Eddie lived through some very wild times.",
             "publication_date":"2021-8-14",
             "author_id":1,
             "price":22.9
@@ -112,7 +112,7 @@
         "fields": {
             "title":"Planet 51",
             "cover_image_url": "hhttps://pisces.bbystatic.com/image2/BestBuy_US/images/products/3206/32060133_so.jpg",
-            "introduction":"Everything seemed to be going just right for Lem, until the day an astronaut dropped out of the sky and landed in his back yard. Soon, Lem's world is turned upside-down. With his entire planet in a tizzy over the 'alien invasion', Lem knows that it's up to him to help Chuck back to his ship. Along the way, the two discover that they have more in common than meets the eye. Can Lem convince his friends that Chuck isn't the threat they assume him to be?",
+            "introduction":"Everything seemed to be going just right for Lem, until the day an astronaut dropped out of the sky and landed in his back yard.",
             "publication_date":"2021-6-7",
             "author_id":1,
             "price":33.9
