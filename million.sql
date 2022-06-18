@@ -13,6 +13,10 @@ update app_api_inventory
 set quantity=50
 
 update app_api_book
+set cover_image_url="http://www.impawards.com/2009/posters/planet_fifty_one.jpg"
+where id=10
+
+update app_api_book
 set introduction = "A comic book genre that flourished briefly in America during the middle 1940s and early 1950s. The genre was infamous for its gruesomely illustrated tales of ghosts and ghouls, zombies and vampires, haunted houses and graveyards."
 where id = 1;
 
