@@ -13,7 +13,7 @@ update app_api_inventory
 set quantity=50
 
 update app_api_book
-set cover_image_url="http://www.impawards.com/2009/posters/planet_fifty_one.jpg"
+set cover_image_url="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/3206/32060133_so.jpg"
 where id=10
 
 update app_api_book
