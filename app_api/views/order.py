@@ -65,7 +65,7 @@ class OrderView(ViewSet):
             inventory = Inventory.objects.get(book_id=ob.book_id)
             inventory.quantity += ob.quantity
             inventory.save()
-        orderbooks.delete()
+            ob.delete()
         order.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
