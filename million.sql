@@ -6,8 +6,8 @@ update app_api_book
 set cover_image_url="https://image-cdn.neatoshop.com/styleimg/109384/none/black/default/468745-20;1598458611y.jpg"
 where id=1
 
-delete from app_api_category
-where id>10
+delete from app_api_author
+where id=11
 
 update app_api_inventory
 set quantity=50
