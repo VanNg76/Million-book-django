@@ -1,0 +1,98 @@
+[
+    {
+        "model": "app_api.book_categories",
+        "pk": 1,
+        "fields": {
+            "book_id": 1,
+            "category_id": 1
+        }
+    },
+    {
+        "model": "app_api.book_categories",
+        "pk": 2,
+        "fields": {
+            "book_id": 2,
+            "category_id": 2
+        }
+    },
+    {
+        "model": "app_api.book_categories",
+        "pk": 3,
+        "fields": {
+            "book_id": 3,
+            "category_id": 3
+        }
+    },
+    {
+        "model": "app_api.book_categories",
+        "pk": 4,
+        "fields": {
+            "book_id": 4,
+            "category_id": 4
+        }
+    },
+    {
+        "model": "app_api.book_categories",
+        "pk": 5,
+        "fields": {
+            "book_id": 5,
+            "category_id": 1
+        }
+    },
+    {
+        "model": "app_api.book_categories",
+        "pk": 6,
+        "fields": {
+            "book_id": 6,
+            "category_id": 2
+        }
+    },
+    {
+        "model": "app_api.book_categories",
+        "pk": 7,
+        "fields": {
+            "book_id": 7,
+            "category_id": 3
+        }
+    },
+    {
+        "model": "app_api.book_categories",
+        "pk": 8,
+        "fields": {
+            "book_id": 8,
+            "category_id": 4
+        }
+    },
+    {
+        "model": "app_api.book_categories",
+        "pk": 9,
+        "fields": {
+            "book_id": 9,
+            "category_id": 10
+        }
+    },
+    {
+        "model": "app_api.book_categories",
+        "pk": 10,
+        "fields": {
+            "book_id": 10,
+            "category_id": 2
+        }
+    },
+    {
+        "model": "app_api.book_categories",
+        "pk": 11,
+        "fields": {
+            "book_id": 1,
+            "category_id": 2
+        }
+    },
+    {
+        "model": "app_api.book_categories",
+        "pk": 12,
+        "fields": {
+            "book_id": 2,
+            "category_id": 1
+        }
+    }
+]
