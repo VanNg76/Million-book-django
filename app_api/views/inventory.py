@@ -11,7 +11,7 @@ class InventoryView(ViewSet):
     def list(self, request):
         """Handle GET requests to get all inventories """
 
-        inventories = Inventory.objects.all()
+        inventories = Inventory.objects.all().order_by('book_id')
 
         # filter books by category
         book = request.query_params.get('book', None)

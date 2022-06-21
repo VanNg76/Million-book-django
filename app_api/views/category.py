@@ -11,7 +11,7 @@ class CategoryView(ViewSet):
     def list(self, request):
         """Handle GET requests to get all categories """
       
-        categories = Category.objects.all()
+        categories = Category.objects.all().order_by('id')
         serializer = CategorySerializer(categories, many=True)
         
         return Response(serializer.data)
@@ -26,6 +26,11 @@ class CategoryView(ViewSet):
         
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+    def destroy(self, request, pk):
+        """DELETE request"""
+        category = Category.objects.get(pk=pk)
+        category.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 class CategorySerializer(serializers.ModelSerializer):
     """JSON serializer for categories """
