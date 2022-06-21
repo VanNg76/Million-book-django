@@ -12,7 +12,7 @@ class AuthorView(ViewSet):
     def list(self, request):
         """Handle GET requests to get all authors """
       
-        authors = Author.objects.all()
+        authors = Author.objects.all().order_by('id')
         serializer = AuthorSerializer(authors, many=True)
         
         return Response(serializer.data)
@@ -27,6 +27,12 @@ class AuthorView(ViewSet):
         serializer = AuthorSerializer(author)
         
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def destroy(self, request, pk):
+        """DELETE request"""
+        author = Author.objects.get(pk=pk)
+        author.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 
 class AuthorSerializer(serializers.ModelSerializer):

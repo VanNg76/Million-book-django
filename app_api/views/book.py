@@ -69,6 +69,7 @@ class BookView(ViewSet):
                 Q(author__name__contains=search_author_name)
             )
 
+        books = books.order_by('id')
         serializer = BookSerializer(books, many=True)
         
         return Response(serializer.data)
