@@ -68,7 +68,7 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
     'http://127.0.0.1:3000',
-    'https://book-millions.herokuapp.com/'
+    'https://book-millions-client.herokuapp.com/'
 )
 
 ROOT_URLCONF = 'app_project.urls'
